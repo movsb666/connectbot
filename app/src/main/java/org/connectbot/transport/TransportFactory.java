@@ -39,6 +39,8 @@ public class TransportFactory {
 		SSH.getProtocolName(),
 		Telnet.getProtocolName(),
 		Local.getProtocolName(),
+		RFComm.getProtocolName(),
+
 	};
 
 	/**
@@ -50,6 +52,8 @@ public class TransportFactory {
 			return new SSH();
 		} else if (Telnet.getProtocolName().equals(protocol)) {
 			return new Telnet();
+		} else if (RFComm.getProtocolName().equals(protocol)) {
+			return new RFComm();
 		} else if (Local.getProtocolName().equals(protocol)) {
 			return new Local();
 		} else {
@@ -65,6 +69,8 @@ public class TransportFactory {
 			return SSH.getUri(input);
 		else if (Telnet.getProtocolName().equals(scheme))
 			return Telnet.getUri(input);
+		else if (RFComm.getProtocolName().equals(scheme))
+			return RFComm.getUri(input);
 		else if (Local.getProtocolName().equals(scheme)) {
 			Log.d("TransportFactory", "Got to the local parsing area");
 			return Local.getUri(input);
@@ -102,6 +108,8 @@ public class TransportFactory {
 			return SSH.getFormatHint(context);
 		} else if (Telnet.getProtocolName().equals(protocol)) {
 			return Telnet.getFormatHint(context);
+		} else if (RFComm.getProtocolName().equals(protocol)) {
+			return RFComm.getFormatHint(context);
 		} else if (Local.getProtocolName().equals(protocol)) {
 			return Local.getFormatHint(context);
 		} else {

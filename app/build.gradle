@@ -57,7 +57,7 @@ android {
         versionName "1.9.2"
         versionCode 19200
 
-        minSdkVersion 9
+        minSdkVersion 10 // need 10 for bluetooth
         targetSdkVersion 23
 
         vectorDrawables.useSupportLibrary = true
